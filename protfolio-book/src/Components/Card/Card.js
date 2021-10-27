@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Api from "../../Api";
 import "./Card.scss";
+import Popup from "../Popup/Popup";
+import PopupUser from "../User/PopupUser";
 
 function Card() {
   const [userDetail, setUserDetail] = useState();
   const [like, setLike] = useState();
+  const [open, setOpen] = useState(false);
+  const [userData, setUserData] = useState();
 
   useEffect(() => {
     Api.getUsers().then((response) => {
@@ -15,6 +19,11 @@ function Card() {
 
   const toggleLike = (id) => {
     setLike(id);
+  };
+
+  var popElement = (record) => {
+    setOpen(true);
+    setUserData(record);
   };
 
   return (
@@ -64,13 +73,31 @@ function Card() {
                     onClick={toggleLike}
                   />
                 )}
-                <img src={`/edit.svg`} className="cardBodyIcon" alt="User" />
+                <img
+                  src={`/edit.svg`}
+                  className="cardBodyIcon"
+                  alt="User"
+                  onClick={() => popElement(data)}
+                />
                 <img src={`/delete.svg`} className="cardBodyIcon" alt="User" />
               </div>
             </div>
           );
         })}
       </div>
+      <Popup
+        open={open}
+        handleClose={() => setOpen(false)}
+        width="sm"
+        title="Edit User"
+      >
+        <PopupUser data={userData} cancel={() => setOpen(false)} />
+        {/* <IssueDetail
+          data={issueData}
+          handleClose={() => setOpen(false)}
+          issueDataFunction={issueDataFunction}
+        /> */}
+      </Popup>
     </>
   );
 }

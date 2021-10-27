@@ -1,0 +1,32 @@
+.buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float: right;
+  margin-right: 34px;
+}
+
+.submitButton {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: white;
+  padding: 9px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: white;
+  border: 1px solid gray;
+  color: gray;
+  padding: 9px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 0px 2px;
+  cursor: pointer;
+}

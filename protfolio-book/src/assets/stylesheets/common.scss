@@ -27,6 +27,13 @@
   justify-content: space-around;
 }
 
+.errorText {
+  color: red !important;
+  margin-left: 40px !important;
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}
+
 //padding-top
 @for $i from 0 through 30 {
   .pt-#{$i*2} {
@@ -37,4 +44,56 @@
 // pointer
 .cursor-pointer {
   cursor: pointer !important;
+}
+
+// flex column
+.flex-col {
+  flex-direction: column !important;
+}
+
+// --------- font-weights ----------
+$weights: 100, 200, 300, 400, 500, 600, 700;
+
+@each $weight in $weights {
+  .weight-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+@for $i from 1 through 42 {
+  .text-#{$i} {
+    font-size: $i + "px";
+  }
+}
+
+.inputField {
+  width: 325px !important;
+  height: 32px !important;
+  // margin-left: 10px !important;
+  margin-top: 10px !important;
+}
+
+//margin-left
+@for $i from 0 through 200 {
+  .ml-#{$i*2} {
+    margin-left: 2px * $i !important;
+  }
+}
+
+// margin-right
+@for $i from 0 through 100 {
+  .mr-#{$i*2} {
+    margin-right: 2px * $i !important;
+  }
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+// height
+@for $i from 0 through 30 {
+  .height-#{$i*2} {
+    height: 2px * $i !important;
+  }
 }
