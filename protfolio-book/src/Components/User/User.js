@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function User() {
+  const users = useSelector((state) => state.users);
   return (
     <>
-      <h1>User</h1>
+      <h1>User-{users}</h1>
     </>
   );
 }
