@@ -97,3 +97,13 @@ $weights: 100, 200, 300, 400, 500, 600, 700;
     height: 2px * $i !important;
   }
 }
+
+.UserImage {
+  width: 300px;
+  height: 180px;
+  border-bottom: 1px solid lightgray;
+}
+
+.greyColor {
+  color: gray !important;
+}

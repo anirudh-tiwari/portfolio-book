@@ -3,8 +3,10 @@ import Api from "../../Api";
 import "./Card.scss";
 import Popup from "../Popup/Popup";
 import PopupUser from "../User/PopupUser";
+import { useHistory } from "react-router-dom";
 
 function Card() {
+  const history = useHistory();
   const [userDetail, setUserDetail] = useState();
   const [like, setLike] = useState();
   const [open, setOpen] = useState(false);
@@ -37,7 +39,15 @@ function Card() {
                 className="UserImage"
                 alt="User"
               />
-              <div className="cardBody mb-14">
+              <div
+                className="cardBody mb-14"
+                onClick={() =>
+                  history.push({
+                    pathname: `/users/${data?.id}`,
+                    state: { data },
+                  })
+                }
+              >
                 <h4 className="mt-10 mb-6">{data?.name}</h4>
                 <div className="flex">
                   <img src={`/email.svg`} className="cardBodyIcon" alt="User" />

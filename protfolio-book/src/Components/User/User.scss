@@ -30,3 +30,24 @@
   margin: 0px 2px;
   cursor: pointer;
 }
+
+.UserDetailImage {
+  width: 300px;
+  height: 300px;
+}
+
+.userDetailLayout {
+  border: 1px solid lightgrey;
+  width: 66%;
+  margin: 0 auto;
+}
+
+.userDetailBody {
+  border-left: 1px solid lightgray;
+  padding-left: 14px;
+}
+
+.cardDetailIcon {
+  width: 30px;
+  margin-right: 10px;
+}
