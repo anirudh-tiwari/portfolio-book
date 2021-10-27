@@ -7,25 +7,14 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteUsers } from "../../Redux/ActionCreator/Users";
 
-function Card({ data }) {
+function Card({ data, popElement }) {
   const history = useHistory();
   const dispatch = useDispatch();
-  // const [userDetail, setUserDetail] = useState();
   const [like, setLike] = useState();
   const [open, setOpen] = useState(false);
-  const [userData, setUserData] = useState();
-
-  // useEffect(() => {
-  //   setUserDetail(data);
-  // }, []);
 
   const toggleLike = (id) => {
     setLike(id);
-  };
-
-  var popElement = (record) => {
-    setOpen(true);
-    setUserData(record);
   };
 
   return (
@@ -92,15 +81,6 @@ function Card({ data }) {
           />
         </div>
       </div>
-
-      {/* <Popup
-        open={open}
-        handleClose={() => setOpen(false)}
-        width="sm"
-        title="Edit User"
-      >
-        <PopupUser data={userData} cancel={() => setOpen(false)} />
-      </Popup> */}
     </>
   );
 }

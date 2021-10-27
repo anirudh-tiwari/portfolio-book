@@ -2,9 +2,12 @@ import React from "react";
 import { Formik, Field, Form, FieldArray, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./User.scss";
+import { useDispatch } from "react-redux";
+import { putUsers } from "../../Redux/ActionCreator/Users";
 
 function PopupUser({ data, cancel }) {
   console.log("1234", data?.name);
+  const dispatch = useDispatch();
 
   const OpeningSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
@@ -31,10 +34,14 @@ function PopupUser({ data, cancel }) {
         validationSchema={OpeningSchema}
         enableReinitialize
         onSubmit={(values) => {
-          let data = {
+          let payload = {
+            id: data.id,
             name: values.name,
+            email: values.email,
+            phone: values.phone,
+            website: values.website,
           };
-          console.log("999", data);
+          dispatch(putUsers(payload), cancel());
         }}
       >
         {(props) => {

@@ -19,9 +19,10 @@ const usersReducer = (state = usersInitialState, action) => {
     case PUT_USERS:
       return {
         ...state,
-        data: state.data.map((user) =>
-          user.id === action.payload.id ? action.payload : user
-        ),
+        data: state.data.map((user) => {
+          debugger;
+          return user.id === action.payload.id ? action.payload : user;
+        }),
       };
     default:
       return state;

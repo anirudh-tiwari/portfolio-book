@@ -12,6 +12,10 @@ function UserDetail() {
     setUserData(location?.state?.data);
   }, []);
 
+  const backPage = () => {
+    history.push("/");
+  };
+
   return (
     <>
       <div className="flex ml-26">
@@ -19,7 +23,7 @@ function UserDetail() {
           src={`/back.svg`}
           className="cardDetailIcon"
           alt="User"
-          onClick={() => history.back()}
+          onClick={backPage}
         />
         <h1>User Detail</h1>
       </div>
@@ -33,27 +37,27 @@ function UserDetail() {
         <div className="userDetailBody">
           <div className="flex">
             <h3>Name: </h3>
-            <h3 className="greyColor">{userData?.name}</h3>
+            <h3 className="greyColor pl-10">{userData?.name}</h3>
           </div>
           <div className="flex">
             <h3>Website:</h3>
-            <h3 className="greyColor">{userData?.website}</h3>
+            <h3 className="greyColor pl-10">{userData?.website}</h3>
           </div>
           <div className="flex">
             <h3>Phone:</h3>
-            <h3 className="greyColor">{userData?.phone}</h3>
+            <h3 className="greyColor pl-10">{userData?.phone}</h3>
           </div>
           <div className="flex">
             <h3>Email:</h3>
-            <h3 className="greyColor">{userData?.email}</h3>
+            <h3 className="greyColor pl-10">{userData?.email}</h3>
           </div>
           <div className="flex">
             <h3>Company:</h3>
-            <h3 className="greyColor">{`${userData?.company?.name} , `}</h3>
+            <h3 className="greyColor pl-10">{`${userData?.company?.name} , `}</h3>
           </div>
           <div className="flex">
             <h3>Address:</h3>
-            <h3 className="greyColor">{`${userData?.address?.city} , ${userData?.address?.street}  , ${userData?.address?.suite}  , ${userData?.address?.zipcode}`}</h3>
+            <h3 className="greyColor pl-10">{`${userData?.address?.city} , ${userData?.address?.street}  , ${userData?.address?.suite}  , ${userData?.address?.zipcode}`}</h3>
           </div>
         </div>
       </div>

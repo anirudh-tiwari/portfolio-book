@@ -107,3 +107,10 @@ $weights: 100, 200, 300, 400, 500, 600, 700;
 .greyColor {
   color: gray !important;
 }
+
+//padding-left
+@for $i from 0 through 30 {
+  .pl-#{$i*2} {
+    padding-left: 2px * $i !important;
+  }
+}
