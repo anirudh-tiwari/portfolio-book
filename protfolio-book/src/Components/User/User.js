@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchUsers } from "../../Redux/ActionCreator/Users";
 import Card from "../Card/Card";
+import "../Card/Card.scss";
 
 function User(props) {
   const { dispatch, users } = props;
-  const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
 
-  useEffect(() => {
-    setUsersData(users);
-  }, [users]);
-
-  return <>{usersData.length ? <Card data={usersData} /> : "Loading..."}</>;
+  return (
+    <>
+      {users.length}{" "}
+      <div className="Card">
+        {users.length
+          ? users.map((user) => <Card data={user} />)
+          : "Loading..."}
+      </div>
+    </>
+  );
 }
 
 function mapStateToProps({ users }) {
