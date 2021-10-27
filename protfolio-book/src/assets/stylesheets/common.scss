@@ -3,6 +3,38 @@
   display: grid;
 }
 
+// flex
 .flex {
   display: flex !important;
+}
+
+// margin-top
+@for $i from 0 through 100 {
+  .mt-#{$i*2} {
+    margin-top: 2px * $i !important;
+  }
+}
+
+// margin-bottom
+@for $i from 0 through 100 {
+  .mb-#{$i*2} {
+    margin-bottom: 2px * $i !important;
+  }
+}
+
+// space-around
+.justify-around {
+  justify-content: space-around;
+}
+
+//padding-top
+@for $i from 0 through 30 {
+  .pt-#{$i*2} {
+    padding-top: 2px * $i !important;
+  }
+}
+
+// pointer
+.cursor-pointer {
+  cursor: pointer !important;
 }

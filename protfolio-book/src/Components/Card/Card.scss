@@ -1,0 +1,30 @@
+.Card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 15%;
+  grid-gap: 55px;
+  margin-left: 80px;
+
+  .cardLayout {
+    border: 1px solid lightgray;
+  }
+
+  .cardBody {
+    margin-left: 20px;
+  }
+  .UserImage {
+    width: 300px;
+    height: 180px;
+    border-bottom: 1px solid lightgray;
+  }
+  .cardBodyIcon {
+    width: 20px;
+    margin-right: 10px;
+  }
+  .greyColor {
+    color: gray;
+  }
+  .cardAction {
+    border-top: 1px solid lightgray;
+  }
+}
