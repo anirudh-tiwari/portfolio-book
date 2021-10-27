@@ -4,19 +4,19 @@ import "./Card.scss";
 import Popup from "../Popup/Popup";
 import PopupUser from "../User/PopupUser";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteUsers } from "../../Redux/ActionCreator/Users";
 
-function Card() {
+function Card({ data }) {
   const history = useHistory();
+  const dispatch = useDispatch();
   const [userDetail, setUserDetail] = useState();
   const [like, setLike] = useState();
   const [open, setOpen] = useState(false);
   const [userData, setUserData] = useState();
 
   useEffect(() => {
-    Api.getUsers().then((response) => {
-      setUserDetail(response.data);
-      debugger;
-    });
+    setUserDetail(data);
   }, []);
 
   const toggleLike = (id) => {
@@ -89,7 +89,14 @@ function Card() {
                   alt="User"
                   onClick={() => popElement(data)}
                 />
-                <img src={`/delete.svg`} className="cardBodyIcon" alt="User" />
+                <img
+                  src={`/delete.svg`}
+                  className="cardBodyIcon"
+                  alt="User"
+                  onClick={() => {
+                    dispatch(deleteUsers(data));
+                  }}
+                />
               </div>
             </div>
           );

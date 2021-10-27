@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./User.scss";
+import { useHistory } from "react-router-dom";
 
 function UserDetail() {
+  const history = useHistory();
   let location = useLocation();
   const [userData, setUserData] = useState();
 
@@ -13,7 +15,12 @@ function UserDetail() {
   return (
     <>
       <div className="flex ml-26">
-        <img src={`/back.svg`} className="cardDetailIcon" alt="User" />
+        <img
+          src={`/back.svg`}
+          className="cardDetailIcon"
+          alt="User"
+          onClick={() => history.back()}
+        />
         <h1>User Detail</h1>
       </div>
       <br />

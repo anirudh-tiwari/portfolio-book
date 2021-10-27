@@ -1,21 +1,27 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { setUsers } from "../../Redux/Actions/Users";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { fetchUsers } from "../../Redux/ActionCreator/Users";
+import Card from "../Card/Card";
 
-function User() {
-  const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+function User(props) {
+  const { dispatch, users } = props;
+  const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
-    dispatch(setUsers());
+    dispatch(fetchUsers());
   }, []);
 
-  return (
-    <>
-      <h1>User-{users}</h1>
-    </>
-  );
+  useEffect(() => {
+    setUsersData(users);
+  }, [users]);
+
+  return <>{usersData.length ? <Card data={usersData} /> : "Loading..."}</>;
 }
 
-export default User;
+function mapStateToProps({ users }) {
+  return {
+    users: users.data,
+  };
+}
+
+export default connect(mapStateToProps)(User);
