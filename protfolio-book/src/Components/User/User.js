@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { fetchUsers } from "../../Redux/ActionCreator/Users";
 import Card from "../Card/Card";
 import "../Card/Card.scss";
 import Popup from "../Popup/Popup";
@@ -8,11 +7,7 @@ import PopupUser from "../User/PopupUser";
 function User(props) {
   const [open, setOpen] = useState(false);
   const [userData, setUserData] = useState();
-  const { dispatch, users } = props;
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+  const { users } = props;
 
   const popupelementData = (data) => {
     setOpen(true);

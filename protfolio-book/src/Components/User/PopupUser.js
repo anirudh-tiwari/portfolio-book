@@ -1,12 +1,12 @@
 import React from "react";
-import { Formik, Field, Form, FieldArray, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./User.scss";
 import { useDispatch } from "react-redux";
 import { putUsers } from "../../Redux/ActionCreator/Users";
 
 function PopupUser({ data, cancel }) {
-  console.log("1234", data?.name);
+  console.log("1234", data);
   const dispatch = useDispatch();
 
   const OpeningSchema = Yup.object().shape({
@@ -40,6 +40,9 @@ function PopupUser({ data, cancel }) {
             email: values.email,
             phone: values.phone,
             website: values.website,
+            username: data.username,
+            address: data.address,
+            company: data.company,
           };
           dispatch(putUsers(payload), cancel());
         }}
